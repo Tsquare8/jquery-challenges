@@ -29,14 +29,30 @@
  *
  */
 
- (function(){
+(function() {
 
-   //jQuery equivelent to window.onload = function{}
-   //code in here wont run until page loads
-   $(function(){
+  //jQuery equivelent to window.onload = function{}
+  //code in here wont run until page loads
+  $(function() {
 
+    $("h1").click(function() {
+      $("h1").each(function(i) {
+        if (this.style.color !== "black") {
+          this.style.color = "black";
+        } else {
+          this.style.color = "red";
+        }
+      });
+    });
 
+    $("h5:odd").hide();
 
-   })
+    $("p").html($("p").html().replace("Bacon", "LASER VISION"));
 
- })();
+    // $("row post:nth-last-child(-n+2)").remove();
+
+    $("aside").remove();
+
+  });
+
+})();

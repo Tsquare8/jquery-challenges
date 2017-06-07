@@ -36,14 +36,81 @@
  *   and how to use it in JS. You will also need to download a sound bite
  */
 
-(function(){
+(function() {
 
   //jQuery equivelent to window.onload = function{}
   //code in here wont run until page loads
-  $(function(){
+  $(function() {
 
+    let reset = $("#reset");
+    let num_reset = $("#num-resets");
+    let shoot1 = $("#teamone-shoot");
+    let numshots1 = $("#teamone-numshots");
+    let numhits1 = $("#teamone-numhits");
+    let shoot2 = $("#teamtwo-shoot");
+    let numshots2 = $("#teamtwo-numshots");
+    let numhits2 = $("#teamtwo-numhits");
+    let shoot = $("#shoot");
+    let miss = $("#miss");
+    let color = $("#color");
 
+    color.css({
+      background: "black",
+      color: "white"
+    });
 
-  })
+    shoot1.click(function() {
+      console.log("shoot button clicked");
+
+      let shot = parseInt(numshots1.html()) + 1;
+      numshots1.html(shot);
+
+      let attempt = Math.random();
+
+      if (attempt <= 0.5) {
+        let hits = parseInt(numhits1.html()) + 1;
+        numhits1.html(hits);
+        color.css({
+          background: "green"
+        });
+      }
+
+    });
+
+    shoot2.click(function() {
+      console.log("shoot button clicked");
+
+      let shot = parseInt(numshots2.html()) + 1;
+      numshots2.html(shot);
+
+      let attempt = Math.random();
+
+      if (attempt <= 0.5) {
+        let hits = parseInt(numhits2.html()) + 1
+        numhits2.html(hits);
+        color.css({
+          background: "darkblue"
+        });
+      }
+    });
+
+    reset.click(function() {
+      console.log("reset button clicked");
+
+      let num_resets = parseInt(num_reset.html()) + 1;
+
+      num_reset.html(num_resets);
+      color.css({
+        background: "black"
+      });
+
+      numshots1.html(0);
+      numhits1.html(0);
+      numshots2.html(0);
+      numhits2.html(0);
+
+    });
+
+  });
 
 })();
